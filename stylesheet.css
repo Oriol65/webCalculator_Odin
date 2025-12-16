@@ -25,7 +25,19 @@
     border: solid black 30%;
     border-radius: 10px;
     margin: 30px auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
 }
+.display {
+    font-family: monospace;
+    padding-right: 20px;
+}
+#displayedNumber{
+    font-size: 30px;
+
+}   
 .row{
     display: flex;
     flex-direction: row;
