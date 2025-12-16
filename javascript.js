@@ -27,6 +27,8 @@ let first='';
 let second='';
 let lastSign=''
 let sign='';
+//Add keyboard support
+
 
 //Update display
 function displayUpdate(x=0){
@@ -51,7 +53,7 @@ function signChange(){
     first = (-1* parseFloat(first)).toString();
     displayUpdate(first);
 }
-//Function to add a period, but only one allowed.. could potentially block or give a visual sign once used. 
+//Function to add a period, but only one allowed.. could potentially block or give a visual sign once used. To be added
 //Function to pass from number 1 to number 2
 function result(){
     let secondOperand=0.0;
@@ -63,7 +65,7 @@ function result(){
         firstOperand=parseFloat(second);
     }
     let total;
-    if (lastSign=="/"){
+    if (lastSign=="/"){                     //divide by zero error message to be displayed
         total=firstOperand/secondOperand;
         console.log("it's dividing")
         console.log(total)
