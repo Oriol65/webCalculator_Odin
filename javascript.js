@@ -48,14 +48,14 @@ function clearAll(){
     displayUpdate(first);
     pastUpdate(0)
 }
-//Function to change the sign
+
 function signChange(){
     first = (-1* parseFloat(first)).toString();
     displayUpdate(first);
 }
 //Function to add a period, but only one allowed.. could potentially block or give a visual sign once used. To be added
-//Function to pass from number 1 to number 2
-function result(){
+
+function operate(){
     let secondOperand=0.0;
     let firstOperand=0.0;
     if (first!=''){
@@ -65,7 +65,11 @@ function result(){
         firstOperand=parseFloat(second);
     }
     let total;
-    if (lastSign=="/"){                     //divide by zero error message to be displayed
+    if (lastSign=="/"){                     
+        if (secondOperand == 0){
+            alert('Imagine that you have zero cookies, and you split them evenly among zero friends. How many cookies does each person get? See? It doesn’t make sense. And Cookie Monster is sad that there are no cookies, and you are sad that you have no friends')
+            secondOperand=1;
+        }
         total=firstOperand/secondOperand;
         console.log("it's dividing")
         console.log(total)
@@ -82,19 +86,29 @@ function result(){
         console.log("it's adding")
         console.log(total)
     } else {
-        total=firstOperand; //equal needs more work since it's not working correctly.
+        total=firstOperand; 
     }
     return(total.toString());
 }
 function calculate(sign){
     if (second!=''){
-        first = result()
+        first = operate()
     }
     second=first;
-    first='';
-    lastSign=sign;
-    displayUpdate(second);
-    pastUpdate(second);
+    if (sign == '='){
+        sign='';
+        lastSign = '';
+        displayUpdate(first);
+        pastUpdate(first);
+    }
+    else {
+
+        first='';
+        lastSign=sign;
+        displayUpdate(second);
+        pastUpdate(second);
+    }
+
 }
 
 displayUpdate(first)
