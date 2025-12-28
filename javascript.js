@@ -93,6 +93,7 @@ function operate(){
     } else {
         total=firstOperand; 
     }
+    total = Math.round(total*1000)/1000;
     return(total.toString());
 }
 function calculate(sign){
