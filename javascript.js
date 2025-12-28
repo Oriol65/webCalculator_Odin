@@ -12,7 +12,7 @@ document.querySelector("#numberEight").onclick = () => displayUpdate(first+='8')
 document.querySelector("#numberNine").onclick = () => displayUpdate(first+='9');
 document.querySelector("#numberZero").onclick = () => displayUpdate(first+='0');
 document.querySelector("#sign").onclick = () => signChange();
-document.querySelector("#period").onclick = () => console.log('.');
+document.querySelector("#period").onclick = () => addPeriod();
 //Operators
 document.querySelector("#divide").onclick = () => calculate( sign ="/");
 document.querySelector("#multiply").onclick = () => calculate(sign='x');
@@ -53,7 +53,12 @@ function signChange(){
     first = (-1* parseFloat(first)).toString();
     displayUpdate(first);
 }
-//Function to add a period, but only one allowed.. could potentially block or give a visual sign once used. To be added
+//Could potentially block or give a visual sign once used. To be added
+function addPeriod (){
+    if (!first.includes('.')){
+        displayUpdate(first+='.');
+    }
+}
 
 function operate(){
     let secondOperand=0.0;
